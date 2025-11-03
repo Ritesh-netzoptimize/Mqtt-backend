@@ -28,6 +28,7 @@ export const signup = async (req, res) => {
 
     if (existingUser) {
         return res.status(400).json({
+            success: "false",
             message: 'Email already exists'
         })
     }
@@ -51,6 +52,7 @@ export const signup = async (req, res) => {
         const expiresAt = decodedToken.exp;
 
         return res.status(200).json({
+            success: true,
             user,
             message: 'User created successfully',
             accessToken,
